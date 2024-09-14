@@ -225,8 +225,10 @@
         function fetchLeaderboard() {
             console.log("fetchLeaderboard function called");
             try {
-                let todaysDate = new Date().toLocaleDateString();
-                //Covert todaysDate to dd-mm-yyyy format
+                  let todaysDate = new Date().toISOString().split('T')[0]
+
+              //Convert the todaysDate in format of dd-mm-yyyy
+
                 let [year, month, day] = todaysDate.split('-');
                 let formattedTodaysDate = `${day}-${month}-${year}`;
 
@@ -258,7 +260,7 @@
                         document.getElementById('leaderboard-display').innerHTML = '<p>No data available for today.</p>';
                         return;
                     }
-                    leaderboardData.sort((a, b) => b.TimeTaken - a.TimeTaken);
+                    leaderboardData.sort((a, b) => a.TimeTaken - b.TimeTaken);
                     leaderboardData = leaderboardData.slice(0, 5);
 
                     let leaderboardDisplay = document.getElementById('leaderboard-display');
@@ -271,9 +273,9 @@
                             <div class="rank">${index + 1}</div>
                             <div class="user-info">
                                 <span class="user-name">${element.UserName || 'Anonymous'}</span>
-                                <span class="user-id">ID: ${element.UserID}</span>
+                                <span class="user-id">User ID: ${element.UserID}</span>
                             </div>
-                            <div class="score">${element.Score}</div>
+                            <div class="score">Time Taken - ${element.Score}s</div>
                         `;
                         leaderboardDisplay.appendChild(leaderboardRow);
                         setTimeout(() => {
@@ -291,7 +293,6 @@
             }
         }
 
-        // Call the function when the page loads
         window.onload = fetchLeaderboard;
     </script>
 </body>
