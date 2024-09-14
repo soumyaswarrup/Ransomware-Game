@@ -12,7 +12,7 @@ let countdown;
 let startTime;
 let endTime;
 let takenMinutes;
-
+let takenSeconds;
 function startChallenge() {
   // Get the logged in user ID
   let userID = localStorage.getItem("loggedInUserID");
@@ -325,7 +325,8 @@ async function saveScoreInDB() {
   }
 
   let timeTaken = Math.floor((endTime - startTime) / 1000); // Time taken in seconds
-  let takenMinutes = Math.floor(timeTaken / 60);
+  takenSeconds = timeTaken;
+   takenMinutes = Math.floor(timeTaken / 60);
   console.log(timeTaken, takenMinutes, "timetaken.....")
   let userID = localStorage.getItem("loggedInUserID");
   let userName = localStorage.getItem("loggedInUser");
@@ -386,7 +387,7 @@ async function endGame(success) {
 
     console.log(endMessageElement)
     endMessageElement.innerHTML = `<button id="closeEndMessage" onclick="closeEndMessage()">✖</button>
-                    <div id="endMessageContent">Congratulations! You've successfully managed the ransomware crisis!<br><br>Your final score is ${score} and you completed the game in ${takenMinutes} minutes. <br><br>To better prepare your organization, consider using <strong>WhizRange</strong> for comprehensive employee training in cybersecurity scenarios and <strong>ZeroHack-S</strong> for advanced ransomware simulation. These tools will help ensure your team is ready to handle real-world cyber threats.</div>`;
+                    <div id="endMessageContent">Congratulations! You've successfully managed the ransomware crisis!<br><br>Your final score is ${score} and you completed the game in ${takenSeconds} seconds. <br><br>To better prepare your organization, consider using <strong>WhizRange</strong> for comprehensive employee training in cybersecurity scenarios and <strong>ZeroHack-S</strong> for advanced ransomware simulation. These tools will help ensure your team is ready to handle real-world cyber threats.</div>`;
     endMessageElement.style.display = "block";
     console.log(endMessageElement)
 
