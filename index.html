@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhizHack Ransomware Simulation Challenge</title>
+    <link rel="stylesheet" href="ransomgame.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body class="custom-background">
+    <div class="container">
+        <nav>
+            <div class="logo">WhizHack Ransomware Simulation Challenge</div>
+            <button class="menu-button" onclick="toggleMenu()">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#">Train your team</a>
+                <a href="/leaderboard.html">Leaderboard</a>
+                <a id="dashboard-name" href="login.html">Register/Login</a>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <div class="challenge-info">
+                <h1>WhizHack Ransomware Simulation Challenge</h1>
+                <p>Your goal is to manage a ransomware crisis affecting a major stock trading platform. Make the right
+                    decisions to protect the company and its stakeholders.</p>
+                <p>Click below to start the challenge.</p>
+                <button onclick="startChallenge()" class="choice-button">Start the challenge</button>
+            </div>
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <div id="scoreDisplay">Score: 0</div>
+                    <div id="timeRemaining">Time: 2:00</div>
+                    <button id="resetButton" onclick="resetGame()">Reset Context</button>
+                </div>
+                <div id="chatBox" class="chat-box">
+                    <div class="message it-security">
+                        <div class="message-content">Welcome to the AI Security Challenge. Click 'Start the challenge'
+                            to begin.</div>
+                    </div>
+                </div>
+                <div id="choices" class="choices"></div>
+            </div>
+        </div>
+
+        <div class="social-share">
+            <p>SHARE THIS CHALLENGE WITH YOUR NETWORK</p>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+
+    <div id="hackedScreen">SYSTEM COMPROMISED</div>
+    <script src="global.js"></script>
+    <script src="ransomgame.js"></script>
+    <script src="dashboard.js"></script>
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

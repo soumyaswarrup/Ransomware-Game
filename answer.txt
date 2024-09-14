@@ -1,0 +1,33 @@
+Here are the questions and the correct answers that appear in the chat box based on the script's scenarios and decision-making process:
+
+1. **A major stock trading platform has been hit by a ransomware attack. What's our first step?**
+   - **Correct Answer:** Conduct an immediate audit to identify the source and scope of the breach.
+
+2. **The audit points to a phishing attack as the entry vector. Multiple workstations are affected. How do we proceed?**
+   - **Correct Answer:** Isolate affected systems and cut internet access to critical assets.
+
+3. **Investors are panicking, and the media is calling. We need a communication strategy. Your advice?**
+   - **Correct Answer:** Prepare a controlled statement emphasizing the containment and resolution efforts.
+
+4. **We've stabilized the system, but recovery is pending. How should we proceed with system restoration?**
+   - **Correct Answer:** Begin system recovery using secure backups.
+
+5. **With the immediate crisis managed, we need to address future security. What should be our focus?**
+   - **Correct Answer:** Implement a comprehensive security policy overhaul and incident response plan.
+
+6. **Stakeholders are demanding updates. How do we manage ongoing communication?**
+   - **Correct Answer:** Establish a regular schedule of transparent, detailed updates.
+
+7. **We've detected attempts at a second wave of attacks. What's our immediate response?**
+   - **Correct Answer:** Implement additional security measures and monitor closely.
+
+8. **Our backup systems were compromised. How do we approach data recovery?**
+   - **Correct Answer:** Utilize offsite, uncompromised backups for recovery.
+
+9. **We need to rebuild trust with our stakeholders. What's the best approach?**
+   - **Correct Answer:** Host a series of town halls and Q&A sessions with key stakeholders.
+
+10. **As we wrap up this incident, what's our strategy moving forward?**
+    - **Correct Answer:** Implement a long-term cybersecurity improvement plan.
+
+These questions and their correct responses are designed to simulate a decision-making process during a cybersecurity crisis, testing the user's knowledge and strategic thinking in managing a cyber incident.
