@@ -132,54 +132,54 @@ function makeChoice(choice) {
         ? "Correct! You've limited the spread and secured core systems."
         : "Incorrect. The attack spreads further.";
       break;
-    // case 3:
-    //   isCorrect = choice === "B";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Your statement reassures the public while maintaining control over information."
-    //     : "Incorrect. The public panics or loses trust.";
-    //   break;
-    // case 4:
-    //   isCorrect = choice === "A";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Restoring from secure backups is a safe approach."
-    //     : "Incorrect. This approach risks further complications.";
-    //   break;
-    // case 5:
-    //   isCorrect = choice === "C";
-    //   feedbackText = isCorrect
-    //     ? "Correct! A comprehensive overhaul addresses immediate and long-term security needs."
-    //     : "Incorrect. This approach may leave vulnerabilities.";
-    //   break;
-    // case 6:
-    //   isCorrect = choice === "B";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Regular, transparent updates maintain stakeholder trust."
-    //     : "Incorrect. This approach may damage relationships.";
-    //   break;
-    // case 7:
-    //   isCorrect = choice === "A";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Swift action prevents further damage."
-    //     : "Incorrect. Delayed response allows the threat to persist.";
-    //   break;
-    // case 8:
-    //   isCorrect = choice === "C";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Using uncompromised backups is the safest recovery method."
-    //     : "Incorrect. This approach risks further complications.";
-    //   break;
-    // case 9:
-    //   isCorrect = choice === "C";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Direct engagement reassures stakeholders and rebuilds trust."
-    //     : "Incorrect. This approach may leave stakeholders uncertain.";
-    //   break;
-    // case 10:
-    //   isCorrect = choice === "B";
-    //   feedbackText = isCorrect
-    //     ? "Correct! Continuous improvement in cybersecurity is crucial for long-term protection."
-    //     : "Incorrect. This approach may leave the organization vulnerable in the future.";
-    //   break;
+    case 3:
+      isCorrect = choice === "B";
+      feedbackText = isCorrect
+        ? "Correct! Your statement reassures the public while maintaining control over information."
+        : "Incorrect. The public panics or loses trust.";
+      break;
+    case 4:
+      isCorrect = choice === "A";
+      feedbackText = isCorrect
+        ? "Correct! Restoring from secure backups is a safe approach."
+        : "Incorrect. This approach risks further complications.";
+      break;
+    case 5:
+      isCorrect = choice === "C";
+      feedbackText = isCorrect
+        ? "Correct! A comprehensive overhaul addresses immediate and long-term security needs."
+        : "Incorrect. This approach may leave vulnerabilities.";
+      break;
+    case 6:
+      isCorrect = choice === "B";
+      feedbackText = isCorrect
+        ? "Correct! Regular, transparent updates maintain stakeholder trust."
+        : "Incorrect. This approach may damage relationships.";
+      break;
+    case 7:
+      isCorrect = choice === "A";
+      feedbackText = isCorrect
+        ? "Correct! Swift action prevents further damage."
+        : "Incorrect. Delayed response allows the threat to persist.";
+      break;
+    case 8:
+      isCorrect = choice === "C";
+      feedbackText = isCorrect
+        ? "Correct! Using uncompromised backups is the safest recovery method."
+        : "Incorrect. This approach risks further complications.";
+      break;
+    case 9:
+      isCorrect = choice === "C";
+      feedbackText = isCorrect
+        ? "Correct! Direct engagement reassures stakeholders and rebuilds trust."
+        : "Incorrect. This approach may leave stakeholders uncertain.";
+      break;
+    case 10:
+      isCorrect = choice === "B";
+      feedbackText = isCorrect
+        ? "Correct! Continuous improvement in cybersecurity is crucial for long-term protection."
+        : "Incorrect. This approach may leave the organization vulnerable in the future.";
+      break;
   }
 
   if (isCorrect) {
@@ -197,7 +197,7 @@ function makeChoice(choice) {
 
   if (isCorrect) {
     currentStage++;
-    if (currentStage <= 2) {
+    if (currentStage <= 10) {
       setTimeout(nextStage, 1500);
     } else {
       endGame(true);
@@ -228,70 +228,70 @@ function nextStage() {
                 <button class="choice-button" onclick="makeChoice('B')">Engage with the attackers to buy time.</button>
                 <button class="choice-button" onclick="makeChoice('C')">Immediately inform all employees via email about the breach.</button>`;
       break;
-    // case 3:
-    //   nextScenarioText =
-    //     "Investors are panicking, and the media is calling. We need a communication strategy. Your advice?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Release a detailed report of the incident to the media.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Prepare a controlled statement emphasizing the containment and resolution efforts.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Stay silent until more information is available.</button>`;
-    //   break;
-    // case 4:
-    //   nextScenarioText =
-    //     "We've stabilized the system, but recovery is pending. How should we proceed with system restoration?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Begin system recovery using secure backups.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Attempt to decrypt affected files using available tools.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Negotiate with attackers for decryption keys.</button>`;
-    //   break;
-    // case 5:
-    //   nextScenarioText =
-    //     "With the immediate crisis managed, we need to address future security. What should be our focus?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Enhance employee training on cybersecurity best practices.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Invest in advanced threat detection systems.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Implement a comprehensive security policy overhaul and incident response plan.</button>`;
-    //   break;
-    // case 6:
-    //   nextScenarioText =
-    //     "Stakeholders are demanding updates. How do we manage ongoing communication?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Provide minimal updates to avoid potential legal issues.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Establish a regular schedule of transparent, detailed updates.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Defer all communication to legal team.</button>`;
-    //   break;
-    // case 7:
-    //   nextScenarioText =
-    //     "We've detected attempts at a second wave of attacks. What's our immediate response?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Implement additional security measures and monitor closely.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Shut down all systems temporarily.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Conduct another round of employee training.</button>`;
-    //   break;
-    // case 8:
-    //   nextScenarioText =
-    //     "Our backup systems were compromised. How do we approach data recovery?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Attempt to recover data from potentially infected backups.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Recreate lost data manually from other sources.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Utilize offsite, uncompromised backups for recovery.</button>`;
-    //   break;
-    // case 9:
-    //   nextScenarioText =
-    //     "We need to rebuild trust with our stakeholders. What's the best approach?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Offer compensation for any losses incurred.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Publish a detailed post-mortem of the incident.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Host a series of town halls and Q&A sessions with key stakeholders.</button>`;
-    //   break;
-    // case 10:
-    //   nextScenarioText =
-    //     "As we wrap up this incident, what's our strategy moving forward?";
-    //   choicesHTML = `
-    //             <button class="choice-button" onclick="makeChoice('A')">Focus on damage control and public relations.</button>
-    //             <button class="choice-button" onclick="makeChoice('B')">Implement a long-term cybersecurity improvement plan.</button>
-    //             <button class="choice-button" onclick="makeChoice('C')">Return to business as usual with minor security adjustments.</button>`;
-    //   break;
+    case 3:
+      nextScenarioText =
+        "Investors are panicking, and the media is calling. We need a communication strategy. Your advice?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Release a detailed report of the incident to the media.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Prepare a controlled statement emphasizing the containment and resolution efforts.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Stay silent until more information is available.</button>`;
+      break;
+    case 4:
+      nextScenarioText =
+        "We've stabilized the system, but recovery is pending. How should we proceed with system restoration?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Begin system recovery using secure backups.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Attempt to decrypt affected files using available tools.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Negotiate with attackers for decryption keys.</button>`;
+      break;
+    case 5:
+      nextScenarioText =
+        "With the immediate crisis managed, we need to address future security. What should be our focus?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Enhance employee training on cybersecurity best practices.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Invest in advanced threat detection systems.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Implement a comprehensive security policy overhaul and incident response plan.</button>`;
+      break;
+    case 6:
+      nextScenarioText =
+        "Stakeholders are demanding updates. How do we manage ongoing communication?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Provide minimal updates to avoid potential legal issues.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Establish a regular schedule of transparent, detailed updates.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Defer all communication to legal team.</button>`;
+      break;
+    case 7:
+      nextScenarioText =
+        "We've detected attempts at a second wave of attacks. What's our immediate response?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Implement additional security measures and monitor closely.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Shut down all systems temporarily.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Conduct another round of employee training.</button>`;
+      break;
+    case 8:
+      nextScenarioText =
+        "Our backup systems were compromised. How do we approach data recovery?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Attempt to recover data from potentially infected backups.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Recreate lost data manually from other sources.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Utilize offsite, uncompromised backups for recovery.</button>`;
+      break;
+    case 9:
+      nextScenarioText =
+        "We need to rebuild trust with our stakeholders. What's the best approach?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Offer compensation for any losses incurred.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Publish a detailed post-mortem of the incident.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Host a series of town halls and Q&A sessions with key stakeholders.</button>`;
+      break;
+    case 10:
+      nextScenarioText =
+        "As we wrap up this incident, what's our strategy moving forward?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')">Focus on damage control and public relations.</button>
+                <button class="choice-button" onclick="makeChoice('B')">Implement a long-term cybersecurity improvement plan.</button>
+                <button class="choice-button" onclick="makeChoice('C')">Return to business as usual with minor security adjustments.</button>`;
+      break;
   }
 
   const managerMessage = document.createElement("div");
