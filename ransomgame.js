@@ -13,20 +13,17 @@ let startTime;
 let endTime;
 let takenMinutes;
 let takenSeconds;
+
 function startChallenge() {
   // Get the logged in user ID
   let userID = localStorage.getItem("loggedInUserID");
 
   if (!userID) {
-     currentStage = 1;
-        score = 0;
-        timeLeft = 120;
-        updateScore();
-        startTimer();
-        nextStage();
-        startTime = new Date();
-  } else {
-     // Get today's date and format it as dd-mm-yyyy
+    alert("Please log in to play the game.");
+    return;
+  }
+
+  // Get today's date and format it as dd-mm-yyyy
   let todaysDate = new Date().toISOString().split('T')[0];
   let [year, month, day] = todaysDate.split('-');
   let formattedTodaysDate = `${day}-${month}-${year}`;
@@ -45,7 +42,7 @@ function startChallenge() {
       // Check if the list is empty
       if (response.list.length > 0) {
         // User has already played today, show a dialog
-        alert('You have already played today!');
+        alert('You have already played today. Please try again tomorrow!');
       } else {
         // List is empty, the user can start the challenge
         currentStage = 1;
@@ -59,11 +56,9 @@ function startChallenge() {
     },
     error: function(error) {
       console.error('Error fetching data:', error);
+      alert('An error occurred. Please try again later.');
     }
   });
-  }
-
- 
 }
 
 function updateScore() {
@@ -326,7 +321,7 @@ async function saveScoreInDB() {
 
   let timeTaken = Math.floor((endTime - startTime) / 1000); // Time taken in seconds
   takenSeconds = timeTaken;
-   takenMinutes = Math.floor(timeTaken / 60);
+  takenMinutes = Math.floor(timeTaken / 60);
   console.log(timeTaken, takenMinutes, "timetaken.....")
   let userID = localStorage.getItem("loggedInUserID");
   let userName = localStorage.getItem("loggedInUser");
@@ -364,7 +359,6 @@ async function saveScoreInDB() {
       },
       data: JSON.stringify(data)
     });
-
     console.log("Data saved successfully:", response);
   } catch (error) {
     console.error("Error saving data:", error);
@@ -419,13 +413,6 @@ alert(
   "This is a simulation for educational purposes only. In a real ransomware situation, never pay the ransom and immediately contact cybersecurity professionals and law enforcement."
 );
 
-// Event listeners
-document.getElementById("startButton").addEventListener("click", startChallenge);
-document.getElementById("resetButton").addEventListener("click", resetGame);
-
-// Initialize the game
-resetGame();
-
 // Function to check if user is logged in
 function checkLoggedInUser() {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -440,21 +427,32 @@ function checkLoggedInUser() {
   }
 }
 
-// Call this function when the page loads
-window.onload = checkLoggedInUser;
-
-// You might want to add a login function here
+// Function to log in a user
 function login(username, userID) {
   localStorage.setItem("loggedInUser", username);
   localStorage.setItem("loggedInUserID", userID);
   checkLoggedInUser();
 }
 
-// And a logout function
+// Function to log out a user
 function logout() {
   localStorage.removeItem("loggedInUser");
   localStorage.removeItem("loggedInUserID");
   checkLoggedInUser();
 }
 
-// Remember to call checkLoggedInUser() after any login/logout operations
+// Function to close the end message
+function closeEndMessage() {
+  endMessageElement.style.display = "none";
+  resetGame();
+}
+
+// Event listeners
+document.getElementById("startButton").addEventListener("click", startChallenge);
+document.getElementById("resetButton").addEventListener("click", resetGame);
+
+// Initialize the game
+resetGame();
+
+// Call checkLoggedInUser when the page loads
+window.onload = checkLoggedInUser;
