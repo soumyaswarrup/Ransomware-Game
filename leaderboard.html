@@ -257,11 +257,11 @@
                     let leaderboardData = data.list;
                     if (leaderboardData.length === 0) {
                         console.log("No data returned from API");
-                        document.getElementById('leaderboard-display').innerHTML = '<p>No data available for today.</p>';
+                        document.getElementById('leaderboard-display').innerHTML = '<h2 style="text-align: center; margin-top: auto; margin-bottom: auto;">Be the first to dive into the action today! Play now and claim your spot at the top of the leaderboard!</h2>';
                         return;
                     }
                     leaderboardData.sort((a, b) => a.TimeTaken - b.TimeTaken);
-                    leaderboardData = leaderboardData.slice(0, 5);
+                    leaderboardData = leaderboardData.slice(0, 5);  
 
                     let leaderboardDisplay = document.getElementById('leaderboard-display');
                     leaderboardDisplay.innerHTML = '';
