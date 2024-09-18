@@ -34,6 +34,8 @@ $(document).ready(function() {
             let password = $("#signup-password").val();
             let country = $("#signup-country").val();
             let social = $("#signup-social").val();
+            let profession = $("#signup-occupation").val();
+            let company = $("#signup-company").val();
             
             if (!isValidEmail(email)) {
                 alert("Please enter a valid email address.");
@@ -62,6 +64,8 @@ $(document).ready(function() {
                             Password: password,
                             Country: country,
                             SocialLink: social,
+                            Profession: profession,
+                            Company: company
                         }),
                         success: function(response) {
                             localStorage.setItem("loggedInUser", name);

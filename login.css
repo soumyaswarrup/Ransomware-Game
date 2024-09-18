@@ -109,7 +109,8 @@ input[type="radio"] {
     width: 100%;
     margin-top: 20px;
 }
-.form-inner form .field input {
+.form-inner form .field input,
+.form-inner form .field select {
     height: 100%;
     width: 100%;
     outline: none;
@@ -120,14 +121,17 @@ input[type="radio"] {
     font-size: 17px;
     transition: all 0.3s ease;
 }
-.form-inner form .field input:focus {
+.form-inner form .field input:focus,
+.form-inner form .field select:focus {
     border-color: #1a75ff;
 }
-.form-inner form .field input::placeholder {
+.form-inner form .field input::placeholder,
+.form-inner form .field select::placeholder {
     color: #999;
     transition: all 0.3s ease;
 }
-form .field input:focus::placeholder {
+form .field input:focus::placeholder,
+form .field select:focus::placeholder {
     color: #1a75ff;
 }
 .form-inner form .pass-link {
