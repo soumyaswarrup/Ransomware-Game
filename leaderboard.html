@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -183,6 +183,26 @@
             50% { transform: translateY(-10px); }
         }
 
+        .home-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: 'Comic Neue', cursive;
+            color: var(--secondary-color);
+            background-color: red; /* Change this line to red */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+
+        }
+
+        .home-button:hover {
+            background-color: var(--primary-color);
+        }
+
         /* Responsive design */
         @media (max-width: 600px) {
             .container {
@@ -220,6 +240,7 @@
             <h1 class="title">Today's Top Players</h1>
         </div>
         <div id="leaderboard-display"></div>
+        <button class="home-button" onclick="window.location.href='index.html'">Go to Home Page</button>
     </div>
     <script>
         function fetchLeaderboard() {
