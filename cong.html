@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Results</title>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .social-share {
+            margin-top: 2rem;
+        }
+        .social-share p {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .social-share a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #0077B5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .social-share a:last-child {
+            background-color: #1DA1F2;
+        }
+        .social-share a:hover {
+            opacity: 0.9;
+        }
+
+        /* New styles for confetti */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .confetti {
+            position: absolute;
+            z-index: 1;
+            top: -10px;
+            border-radius: 0%;
+        }
+        .confetti--animation-slow {
+            animation: confetti-slow 2.25s linear 1 forwards;
+        }
+        .confetti--animation-medium {
+            animation: confetti-medium 1.75s linear 1 forwards;
+        }
+        .confetti--animation-fast {
+            animation: confetti-fast 1.25s linear 1 forwards;
+        }
+        @keyframes confetti-slow {
+            0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+            100% { transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg); }
+        }
+        @keyframes confetti-medium {
+            0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+            100% { transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg); }
+        }
+        @keyframes confetti-fast {
+            0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+            100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container js-container">
+        <h1>Congratulations!</h1>
+        <p>You've successfully managed the ransomware crisis!</p>
+        <p>Your final score: <span id="score" class="highlight"></span></p>
+        <p>Time taken: <span id="time" class="highlight"></span></p>
+        <p>To better prepare your organization, consider using <strong>WhizRange</strong> for comprehensive employee training in cybersecurity scenarios and <strong>ZeroHack-S</strong> for advanced ransomware simulation. These tools will help ensure your team is ready to handle real-world cyber threats.</p>
+        <button onclick="goBack()">Play Again</button>
+        
+        <div class="social-share">
+            <p>SHARE THIS CHALLENGE WITH YOUR NETWORK</p>
+            <a href="#" id="linkedinShare" target="_blank">
+                Share on LinkedIn
+            </a>
+            <a href="#" id="twitterShare" target="_blank">
+                Share on Twitter
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        window.onload = function() {
+            var score = getUrlParameter('score');
+            var time = getUrlParameter('time');
+            
+            // Display score and time on the page
+            document.getElementById('score').textContent = score;
+            
+            var minutes = Math.floor(time / 60);
+            var seconds = time % 60;
+            var timeString = minutes + ' minutes and ' + seconds + ' seconds';
+            document.getElementById('time').textContent = timeString;
+
+            // Share message for LinkedIn and Twitter
+            var shareMessage = encodeURIComponent("I solved the WhizHack Ransomware Challenge in " + timeString + " with a score of " + score + "! Can you beat my time? Test your cyber defense skills now!");
+            var shareUrl = encodeURIComponent("https://whizhack-ransomware.netlify.app/");
+
+            // Generate LinkedIn share URL
+            var linkedinShareUrl = "https://www.linkedin.com/shareArticle?mini=true&url=" + shareUrl + "&title=WhizHack%20Ransomware%20Simulation%20Game&summary=" + shareMessage + "&source=WhizHack";
+            document.getElementById('linkedinShare').href = linkedinShareUrl;
+
+            // Generate Twitter share URL
+            var twitterShareUrl = "https://twitter.com/intent/tweet?url=" + shareUrl + "&text=" + shareMessage + "&hashtags=WhizHack,Cybersecurity";
+            document.getElementById('twitterShare').href = twitterShareUrl;
+
+            // Initialize confetti
+            new Confettiful(document.querySelector('.js-container'));
+        }
+
+        // Confetti effect
+        const Confettiful = function(el) {
+            this.el = el;
+            this.containerEl = null;
+            
+            this.confettiFrequency = 3;
+            this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E','#EFFF1D'];
+            this.confettiAnimations = ['slow', 'medium', 'fast'];
+            
+            this._setupElements();
+            this._renderConfetti();
+        };
+
+        Confettiful.prototype._setupElements = function() {
+            const containerEl = document.createElement('div');
+            const elPosition = this.el.style.position;
+            
+            if (elPosition !== 'relative' || elPosition !== 'absolute') {
+                this.el.style.position = 'relative';
+            }
+            
+            containerEl.classList.add('confetti-container');
+            
+            this.el.appendChild(containerEl);
+            
+            this.containerEl = containerEl;
+        };
+
+        Confettiful.prototype._renderConfetti = function() {
+            this.confettiInterval = setInterval(() => {
+                const confettiEl = document.createElement('div');
+                const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
+                const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
+                const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
+                const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
+                
+                confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
+                confettiEl.style.left = confettiLeft;
+                confettiEl.style.width = confettiSize;
+                confettiEl.style.height = confettiSize;
+                confettiEl.style.backgroundColor = confettiBackground;
+                
+                confettiEl.removeTimeout = setTimeout(function() {
+                    confettiEl.parentNode.removeChild(confettiEl);
+                }, 3000);
+                
+                this.containerEl.appendChild(confettiEl);
+            }, 25);
+        };
+    </script>
+</body>
+</html>
