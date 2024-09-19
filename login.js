@@ -23,6 +23,11 @@ $(document).ready(function() {
             return emailRegex.test(email);
         };
 
+        var isValidCompanyEmail = function(email) {
+            var companyEmailRegex = /^[^\s@]+@(?!gmail\.com|yahoo\.com|hotmail\.com|outlook\.com)[^\s@]+\.[^\s@]+$/;
+            return companyEmailRegex.test(email);
+        };
+
         var isValidSocialLink = function(url) {
             var urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+([/?].*)?$/;
             return urlRegex.test(url);
@@ -39,6 +44,12 @@ $(document).ready(function() {
             
             if (!isValidEmail(email)) {
                 alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Validate company email only if user is a working professional
+            if (profession === "working-professional" && !isValidCompanyEmail(email)) {
+                alert("Please enter a valid company email address.");
                 return;
             }
 
@@ -128,6 +139,16 @@ $(document).ready(function() {
             $("#signin-form").submit(function(e) {
                 e.preventDefault();
                 signin();
+            });
+
+            $("#signup-occupation").change(function() {
+                if ($(this).val() === "working-professional") {
+                    $("#signup-company-email").show();
+                    $("#signup-email").attr("placeholder", "Enter your company email");
+                } else {
+                    $("#signup-company-email").hide();
+                    $("#signup-email").attr("placeholder", "Enter your email");
+                }
             });
         };
 
