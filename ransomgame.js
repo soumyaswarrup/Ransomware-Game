@@ -63,7 +63,16 @@ function startTimer() {
     timeLeft--;
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    timeRemainingElement.innerText = `Time: ${minutes}:${seconds.toString().padStart(2, "0")}`;
+    const timeString = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    
+    // Check if time is below 60 seconds
+    if (timeLeft < 60) {
+      timeRemainingElement.style.color = "red";
+    } else {
+      timeRemainingElement.style.color = ""; // Reset to default color
+    }
+    
+    timeRemainingElement.innerText = `Time: ${timeString}`;
 
     if (timeLeft <= 0) {
       clearInterval(countdown);
@@ -322,7 +331,6 @@ function nextStage() {
 function showScaryScreen() {
   window.location.href = 'hacked.html';
 }
-
 async function saveScoreInDB() {
   let scoreText = $("#scoreDisplay").text();
   let score = scoreText.replace("Score: ", "");
@@ -406,6 +414,7 @@ function resetGame() {
   updateScore();
   clearInterval(countdown);
   timeRemainingElement.innerText = "Time: 2:00";
+  timeRemainingElement.style.color = ""; // Reset to default color
   chatBox.innerHTML =
     '<div class="message it-security"><div class="message-content">Welcome to the AI Security Challenge. Click \'Start the challenge\' to begin.</div></div>';
   choicesElement.innerHTML = "";
