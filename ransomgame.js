@@ -251,230 +251,230 @@ function nextStage() {
                 <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Attempt to decrypt affected files using available tools.</button>
                 <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Negotiate with attackers for decryption keys.</button>`;
       break;
-      case 5:
-        nextScenarioText =
-          "With the immediate crisis managed, we need to address future security. What should be our focus?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Enhance employee training on cybersecurity best practices.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Invest in advanced threat detection systems.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Implement a comprehensive security policy overhaul and incident response plan.</button>`;
-        break;
-      case 6:
-        nextScenarioText =
-          "Stakeholders are demanding updates. How do we manage ongoing communication?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Provide minimal updates to avoid potential legal issues.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Establish a regular schedule of transparent, detailed updates.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Defer all communication to legal team.</button>`;
-        break;
-      case 7:
-        nextScenarioText =
-          "We've detected attempts at a second wave of attacks. What's our immediate response?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Implement additional security measures and monitor closely.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Shut down all systems temporarily.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Conduct another round of employee training.</button>`;
-        break;
-      case 8:
-        nextScenarioText =
-          "Our backup systems were compromised. How do we approach data recovery?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Attempt to recover data from potentially infected backups.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Recreate lost data manually from other sources.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Utilize offsite, uncompromised backups for recovery.</button>`;
-        break;
-      case 9:
-        nextScenarioText =
-          "We need to rebuild trust with our stakeholders. What's the best approach?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Offer compensation for any losses incurred.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Publish a detailed post-mortem of the incident.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Host a series of town halls and Q&A sessions with key stakeholders.</button>`;
-        break;
-      case 10:
-        nextScenarioText =
-          "As we wrap up this incident, what's our strategy moving forward?";
-        choicesHTML = `
-                  <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Focus on damage control and public relations.</button>
-                  <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Implement a long-term cybersecurity improvement plan.</button>
-                  <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Return to business as usual with minor security adjustments.</button>`;
-        break;
-    }
-  
-    const managerMessage = document.createElement("div");
-    managerMessage.className = "message it-security";
-    managerMessage.innerHTML = `<div class="message-content"></div>`;
-    chatBox.appendChild(managerMessage);
-  
-    choicesElement.innerHTML = choicesHTML;
-    disableChoiceButtons();
-  
-    typeMessage(
-      managerMessage.querySelector(".message-content"),
-      `IT Security: ${nextScenarioText}`,
-      30,
-      enableChoiceButtons
-    );
-  
-    scrollToBottom();
+    case 5:
+      nextScenarioText =
+        "With the immediate crisis managed, we need to address future security. What should be our focus?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Enhance employee training on cybersecurity best practices.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Invest in advanced threat detection systems.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Implement a comprehensive security policy overhaul and incident response plan.</button>`;
+      break;
+    case 6:
+      nextScenarioText =
+        "Stakeholders are demanding updates. How do we manage ongoing communication?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Provide minimal updates to avoid potential legal issues.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Establish a regular schedule of transparent, detailed updates.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Defer all communication to legal team.</button>`;
+      break;
+    case 7:
+      nextScenarioText =
+        "We've detected attempts at a second wave of attacks. What's our immediate response?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Implement additional security measures and monitor closely.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Shut down all systems temporarily.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Conduct another round of employee training.</button>`;
+      break;
+    case 8:
+      nextScenarioText =
+        "Our backup systems were compromised. How do we approach data recovery?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Attempt to recover data from potentially infected backups.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Recreate lost data manually from other sources.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Utilize offsite, uncompromised backups for recovery.</button>`;
+      break;
+    case 9:
+      nextScenarioText =
+        "We need to rebuild trust with our stakeholders. What's the best approach?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Offer compensation for any losses incurred.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Publish a detailed post-mortem of the incident.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Host a series of town halls and Q&A sessions with key stakeholders.</button>`;
+      break;
+    case 10:
+      nextScenarioText =
+        "As we wrap up this incident, what's our strategy moving forward?";
+      choicesHTML = `
+                <button class="choice-button" onclick="makeChoice('A')" disabled title="Wait for the question to complete">Focus on damage control and public relations.</button>
+                <button class="choice-button" onclick="makeChoice('B')" disabled title="Wait for the question to complete">Implement a long-term cybersecurity improvement plan.</button>
+                <button class="choice-button" onclick="makeChoice('C')" disabled title="Wait for the question to complete">Return to business as usual with minor security adjustments.</button>`;
+      break;
   }
-  
-  function showScaryScreen() {
-    hackedScreenElement.style.display = "block";
-    endGame(false);
-  }
-  
-  async function saveScoreInDB() {
-    let scoreText = $("#scoreDisplay").text();
-    let score = scoreText.replace("Score: ", "");
-  
-    if (!endTime) {
-      console.error("endTime is not defined");
-      return;
-    }
-  
-    let timeTaken = Math.floor((endTime - startTime) / 1000);
-    takenSeconds = timeTaken;
-    takenMinutes = Math.floor(timeTaken / 60);
-    console.log(timeTaken, takenMinutes, "timetaken.....")
-    let userID = localStorage.getItem("loggedInUserID");
-    let userName = localStorage.getItem("loggedInUser");
-  
-    if (!userID || !userName) {
-      console.error("User ID or User Name is missing from localStorage");
-      return;
-    }
-  
-    let todaysDate = new Date().toISOString().split('T')[0]
-  
-    let [year, month, day] = todaysDate.split('-');
-    let formattedTodaysDate = `${day}-${month}-${year}`;
-  
-    let data = {
-      UserID: userID,
-      UserName: userName,
-      Date: formattedTodaysDate, 
-      Score: score,
-      TimeTaken: timeTaken,
-    };
-  
-    console.log("Attempting to save data:", data);
-  
-    try {
-      let response = await $.ajax({
-        url: "https://app.nocodb.com/api/v2/tables/mk27lmgo6fq6u1q/records",
-        type: "POST",
-        headers: {
-          "xc-token": "v659YuW3iQbnASgtnAmWEB_xuaXHX1cs6-V3Sy8B",
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify(data)
-      });
-      console.log("Data saved successfully:", response);
-    } catch (error) {
-      console.error("Error saving data:", error);
-      if (error.responseJSON) {
-        console.error("Server response:", error.responseJSON);
-      }
-    }
-  }
-  
-  async function endGame(success) {
-    clearInterval(countdown);
-    choicesElement.style.display = "none";
-    endTime = new Date();
-    if (success) {
-      let userIDLoggedIn = localStorage.getItem("loggedInUserID")
-  
-      if (userIDLoggedIn) {
-        await saveScoreInDB();
-      }
-      
-      // Redirect to the results page
-      window.location.href = `cong.html?score=${score}&time=${takenSeconds}`;
-    } else {
-      failedMessageElement.innerHTML = `Game Over: The attack caused irreparable damage.<br><br>Your final score is ${score}.<br><br>Remember, in a real ransomware situation, never pay the ransom and immediately contact cybersecurity professionals and law enforcement.`;
-      failedMessageElement.style.display = "block";
-    }
-    scrollToBottom();
-  }
-  
-  function resetGame() {
-    currentStage = 0;
-    score = 0;
-    timeLeft = 120;
-    updateScore();
-    clearInterval(countdown);
-    timeRemainingElement.innerText = "Time: 2:00";
-    chatBox.innerHTML =
-      '<div class="message it-security"><div class="message-content">Welcome to the AI Security Challenge. Click \'Start the challenge\' to begin.</div></div>';
-    choicesElement.innerHTML = "";
-    hackedScreenElement.style.display = "none";
-    failedMessageElement.style.display = "none";
-    scrollToBottom();
-  }
-  
-  // Disclaimer
-  alert(
-    "This is a simulation for educational purposes only. In a real ransomware situation, never pay the ransom and immediately contact cybersecurity professionals and law enforcement."
+
+  const managerMessage = document.createElement("div");
+  managerMessage.className = "message it-security";
+  managerMessage.innerHTML = `<div class="message-content"></div>`;
+  chatBox.appendChild(managerMessage);
+
+  choicesElement.innerHTML = choicesHTML;
+  disableChoiceButtons();
+
+  typeMessage(
+    managerMessage.querySelector(".message-content"),
+    `IT Security: ${nextScenarioText}`,
+    30,
+    enableChoiceButtons
   );
-  
-  function checkLoggedInUser() {
-    const loggedInUser = localStorage.getItem("loggedInUser");
-    const loggedInUserID = localStorage.getItem("loggedInUserID");
-    
-    if (loggedInUser && loggedInUserID) {
-      document.getElementById("userInfo").textContent = `Hello ${loggedInUser}`;
-      document.querySelector('.dropdown-content').style.display = 'block';
-    } else {
-      document.getElementById("userInfo").textContent = "Please log in to play";
-      document.querySelector('.dropdown-content').style.display = 'none';
+
+  scrollToBottom();
+}
+
+function showScaryScreen() {
+  window.location.href = 'hacked.html';
+}
+
+async function saveScoreInDB() {
+  let scoreText = $("#scoreDisplay").text();
+  let score = scoreText.replace("Score: ", "");
+
+  if (!endTime) {
+    console.error("endTime is not defined");
+    return;
+  }
+
+  let timeTaken = Math.floor((endTime - startTime) / 1000);
+  takenSeconds = timeTaken;
+  takenMinutes = Math.floor(timeTaken / 60);
+  console.log(timeTaken, takenMinutes, "timetaken.....")
+  let userID = localStorage.getItem("loggedInUserID");
+  let userName = localStorage.getItem("loggedInUser");
+
+  if (!userID || !userName) {
+    console.error("User ID or User Name is missing from localStorage");
+    return;
+  }
+
+  let todaysDate = new Date().toISOString().split('T')[0]
+
+  let [year, month, day] = todaysDate.split('-');
+  let formattedTodaysDate = `${day}-${month}-${year}`;
+
+  let data = {
+    UserID: userID,
+    UserName: userName,
+    Date: formattedTodaysDate, 
+    Score: score,
+    TimeTaken: timeTaken,
+  };
+
+  console.log("Attempting to save data:", data);
+
+  try {
+    let response = await $.ajax({
+      url: "https://app.nocodb.com/api/v2/tables/mk27lmgo6fq6u1q/records",
+      type: "POST",
+      headers: {
+        "xc-token": "v659YuW3iQbnASgtnAmWEB_xuaXHX1cs6-V3Sy8B",
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(data)
+    });
+    console.log("Data saved successfully:", response);
+  } catch (error) {
+    console.error("Error saving data:", error);
+    if (error.responseJSON) {
+      console.error("Server response:", error.responseJSON);
     }
   }
-  
-  function login(username, userID) {
-    localStorage.setItem("loggedInUser", username);
-    localStorage.setItem("loggedInUserID", userID);
-    checkLoggedInUser();
+}
+
+async function endGame(success) {
+  clearInterval(countdown);
+  choicesElement.style.display = "none";
+  endTime = new Date();
+  if (success) {
+    let userIDLoggedIn = localStorage.getItem("loggedInUserID");
+    let userNameLoggedIn = localStorage.getItem("loggedInUser");
+
+    if (userIDLoggedIn) {
+      await saveScoreInDB();
+    }
+    
+    // Redirect to the results page with name, score, and time
+    window.location.href = `cong.html?name=${encodeURIComponent(userNameLoggedIn)}&score=${score}&time=${takenSeconds}`;
+  } else {
+    failedMessageElement.innerHTML = `Game Over: The attack caused irreparable damage.<br><br>Your final score is ${score}.<br><br>Remember, in a real ransomware situation, never pay the ransom and immediately contact cybersecurity professionals and law enforcement.`;
+    failedMessageElement.style.display = "block";
   }
+  scrollToBottom();
+}
+
+function resetGame() {
+  currentStage = 0;
+  score = 0;
+  timeLeft = 120;
+  updateScore();
+  clearInterval(countdown);
+  timeRemainingElement.innerText = "Time: 2:00";
+  chatBox.innerHTML =
+    '<div class="message it-security"><div class="message-content">Welcome to the AI Security Challenge. Click \'Start the challenge\' to begin.</div></div>';
+  choicesElement.innerHTML = "";
+  hackedScreenElement.style.display = "none";
+  failedMessageElement.style.display = "none";
+  scrollToBottom();
+}
+
+// Disclaimer
+alert(
+  "This is a simulation for educational purposes only. In a real ransomware situation, never pay the ransom and immediately contact cybersecurity professionals and law enforcement."
+);
+
+function checkLoggedInUser() {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const loggedInUserID = localStorage.getItem("loggedInUserID");
   
-  function logout() {
-    localStorage.removeItem("loggedInUser");
-    localStorage.removeItem("loggedInUserID");
-    checkLoggedInUser();
-    // Redirect to login page or show login form
-    // For example: window.location.href = 'login.html';
+  if (loggedInUser && loggedInUserID) {
+    document.getElementById("userInfo").textContent = `Hello ${loggedInUser}`;
+    document.querySelector('.dropdown-content').style.display = 'block';
+  } else {
+    document.getElementById("userInfo").textContent = "Please log in to play";
+    document.querySelector('.dropdown-content').style.display = 'none';
   }
-  
-  // Event listeners
-  document.getElementById("startButton").addEventListener("click", startChallenge);
-  document.getElementById("resetButton").addEventListener("click", resetGame);
-  document.getElementById("logoutLink").addEventListener("click", function(e) {
-    e.preventDefault();
-    logout();
-  });
-  
-  // Toggle dropdown on user info click
-  document.getElementById("userInfo").addEventListener("click", function() {
-    var dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-  });
-  
-  // Close dropdown when clicking outside
-  window.addEventListener("click", function(event) {
-    if (!event.target.matches('#userInfo')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.style.display === 'block') {
-          openDropdown.style.display = 'none';
-        }
+}
+
+function login(username, userID) {
+  localStorage.setItem("loggedInUser", username);
+  localStorage.setItem("loggedInUserID", userID);
+  checkLoggedInUser();
+}
+
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  localStorage.removeItem("loggedInUserID");
+  checkLoggedInUser();
+  // Redirect to login page or show login form
+  // For example: window.location.href = 'login.html';
+}
+
+// Event listeners
+document.getElementById("startButton").addEventListener("click", startChallenge);
+document.getElementById("resetButton").addEventListener("click", resetGame);
+document.getElementById("logoutLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  logout();
+});
+
+// Toggle dropdown on user info click
+document.getElementById("userInfo").addEventListener("click", function() {
+  var dropdownContent = document.querySelector('.dropdown-content');
+  dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
+
+// Close dropdown when clicking outside
+window.addEventListener("click", function(event) {
+  if (!event.target.matches('#userInfo')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.style.display === 'block') {
+        openDropdown.style.display = 'none';
       }
     }
-  });
-  
-  // Initialize the game
-  resetGame();
-  
-  // Call checkLoggedInUser when the page loads
-  window.onload = checkLoggedInUser;
+  }
+});
+
+// Initialize the game
+resetGame();
+
+// Call checkLoggedInUser when the page loads
+window.onload = checkLoggedInUser;
